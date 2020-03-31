@@ -1,5 +1,6 @@
 package com.Swesection.services;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.Connection.SqlConnection;
 import com.Swesection.models.*;
 
 @RestController
@@ -31,6 +34,13 @@ public class UserCotroller {
 	public String welcome(@RequestBody String name)
 	{
 		return "Hi "+name;
+	}
+	
+
+	@RequestMapping("/connect")
+	public SqlConnection connection() throws SQLException
+	{
+		return SqlConnection.getInstance();
 	}
  
 }
